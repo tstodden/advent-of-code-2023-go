@@ -1,0 +1,8 @@
+# development resources
+/.idea
+
+# compiled resources
+/aoc2023
+
+# input data
+/input/*.txt
