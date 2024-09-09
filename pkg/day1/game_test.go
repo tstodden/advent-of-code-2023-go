@@ -7,6 +7,26 @@ import (
 	"testing"
 )
 
+func TestGame_IsPossible_Possible(t *testing.T) {
+	game := day1.Game{Id: 1, Samples: []day1.Sample{{Blue: 1, Green: 1, Red: 1}}}
+
+	got := game.IsPossible(day1.BagContents{Blue: 1, Green: 1, Red: 1})
+
+	if got != true {
+		t.Error("game should be possible")
+	}
+}
+
+func TestGame_IsPossible_Impossible(t *testing.T) {
+	game := day1.Game{Id: 1, Samples: []day1.Sample{{Blue: 3, Green: 3, Red: 3}}}
+
+	got := game.IsPossible(day1.BagContents{Blue: 1, Green: 1, Red: 1})
+
+	if got != false {
+		t.Error("game should be impossible")
+	}
+}
+
 func TestNewGame_SingleSample(t *testing.T) {
 	input := "Game 72: 3 blue, 1 green, 11 red"
 

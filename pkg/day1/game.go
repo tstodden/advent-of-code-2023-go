@@ -6,11 +6,21 @@ import (
 	"strings"
 )
 
+type BagContents struct {
+	Blue  int
+	Green int
+	Red   int
+}
+
 var ErrGameFormat = errors.New("color must have exactly 2 parts")
 
 type Game struct {
 	Id      int
 	Samples []Sample
+}
+
+func (g Game) IsPossible(contents BagContents) bool {
+	return false
 }
 
 func NewGame(s string) (Game, error) {
