@@ -15,7 +15,6 @@ func main() {
 	}
 
 	total := 0
-	contents := day1.BagContents{Blue: 14, Green: 13, Red: 12}
 	lines := strings.Split(string(file), "\n")
 	for _, v := range lines {
 		game, err := day1.NewGame(v)
@@ -23,9 +22,8 @@ func main() {
 			log.Fatal(err)
 		}
 
-		if game.IsPossible(contents) {
-			total += game.Id
-		}
+		contents := game.GetMinimumBagContents()
+		total += contents.Blue * contents.Green * contents.Red
 	}
 
 	fmt.Printf("total is: %d", total)
