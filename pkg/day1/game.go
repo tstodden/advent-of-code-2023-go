@@ -19,6 +19,22 @@ type Game struct {
 	Samples []Sample
 }
 
+func (g Game) GetMinimumBagContents() BagContents {
+	result := BagContents{}
+	for _, v := range g.Samples {
+		if v.Blue > result.Blue {
+			result.Blue = v.Blue
+		}
+		if v.Green > result.Green {
+			result.Green = v.Green
+		}
+		if v.Red > result.Red {
+			result.Red = v.Red
+		}
+	}
+	return result
+}
+
 func (g Game) IsPossible(contents BagContents) bool {
 	for _, v := range g.Samples {
 		if v.Blue > contents.Blue || v.Green > contents.Green || v.Red > contents.Red {

@@ -7,6 +7,16 @@ import (
 	"testing"
 )
 
+func TestGame_GetMinimumBagContents(t *testing.T) {
+	game := day1.Game{Id: 1, Samples: []day1.Sample{{Blue: 1, Green: 3, Red: 2}, {Blue: 5, Green: 1, Red: 2}}}
+
+	got := game.GetMinimumBagContents()
+
+	if got.Blue != 5 || got.Green != 3 || got.Red != 2 {
+		t.Error("incorrect minimum bag contents")
+	}
+}
+
 func TestGame_IsPossible_Possible(t *testing.T) {
 	game := day1.Game{Id: 1, Samples: []day1.Sample{{Blue: 1, Green: 1, Red: 1}}}
 
