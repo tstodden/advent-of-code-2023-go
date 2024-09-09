@@ -1,10 +1,11 @@
 package main
 
 import (
-	"bytes"
+	"aoc2023/pkg/day1"
 	"fmt"
 	"log"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -13,8 +14,12 @@ func main() {
 		log.Fatal(err)
 	}
 
-	lines := bytes.Split(file, []byte("\n"))
+	lines := strings.Split(string(file), "\n")
 	for _, v := range lines {
-		fmt.Println(v)
+		game, err := day1.NewGame(v)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("%#v\n", game)
 	}
 }
