@@ -20,7 +20,12 @@ type Game struct {
 }
 
 func (g Game) IsPossible(contents BagContents) bool {
-	return false
+	for _, v := range g.Samples {
+		if v.Blue > contents.Blue || v.Green > contents.Green || v.Red > contents.Red {
+			return false
+		}
+	}
+	return true
 }
 
 func NewGame(s string) (Game, error) {
