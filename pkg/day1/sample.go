@@ -20,8 +20,8 @@ func NewSample(s string) (Sample, error) {
 	var result Sample
 
 	colors := strings.Split(s, ", ")
-	for _, c := range colors {
-		parts := strings.Split(c, " ")
+	for _, v := range colors {
+		parts := strings.Split(v, " ")
 		if len(parts) != 2 {
 			return result, ErrColorFormat
 		}
