@@ -1,7 +1,7 @@
 package main
 
 import (
-	"aoc2023/pkg/day1"
+	"aoc2023/pkg/day2"
 	"fmt"
 	"log"
 	"os"
@@ -17,7 +17,7 @@ func main() {
 	total := 0
 	lines := strings.Split(string(file), "\n")
 	for _, v := range lines {
-		game, err := day1.NewGame(v)
+		game, err := day2.NewGame(v)
 		if err != nil {
 			log.Fatal(err)
 		}

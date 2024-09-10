@@ -1,7 +1,7 @@
-package day1_test
+package day2_test
 
 import (
-	"aoc2023/pkg/day1"
+	"aoc2023/pkg/day2"
 	"errors"
 	"strconv"
 	"testing"
@@ -10,7 +10,7 @@ import (
 func TestNewSample_AllColors(t *testing.T) {
 	input := "10 blue, 8 red, 19 green"
 
-	sample, err := day1.NewSample(input)
+	sample, err := day2.NewSample(input)
 
 	if err != nil {
 		t.Errorf("error is not nil: %s", err)
@@ -24,7 +24,7 @@ func TestNewSample_AllColors(t *testing.T) {
 func TestNewSample_SomeColors(t *testing.T) {
 	input := "8 red"
 
-	sample, err := day1.NewSample(input)
+	sample, err := day2.NewSample(input)
 
 	if err != nil {
 		t.Errorf("error is not nil: %s", err)
@@ -38,7 +38,7 @@ func TestNewSample_SomeColors(t *testing.T) {
 func TestNewSample_InvalidInteger(t *testing.T) {
 	input := "eight red"
 
-	_, err := day1.NewSample(input)
+	_, err := day2.NewSample(input)
 
 	if err == nil {
 		t.Error("error is nil")
@@ -52,13 +52,13 @@ func TestNewSample_InvalidInteger(t *testing.T) {
 func TestNewSample_InvalidFormat(t *testing.T) {
 	input := "8red"
 
-	_, err := day1.NewSample(input)
+	_, err := day2.NewSample(input)
 
 	if err == nil {
 		t.Error("error is nil")
 		return
 	}
-	if !errors.Is(err, day1.ErrColorFormat) {
+	if !errors.Is(err, day2.ErrColorFormat) {
 		t.Errorf("error is incorrect: %s", err)
 	}
 }
@@ -66,13 +66,13 @@ func TestNewSample_InvalidFormat(t *testing.T) {
 func TestNewSample_InvalidColor(t *testing.T) {
 	input := "8 yellow"
 
-	_, err := day1.NewSample(input)
+	_, err := day2.NewSample(input)
 
 	if err == nil {
 		t.Error("error is nil")
 		return
 	}
-	if !errors.Is(err, day1.ErrInvalidColor) {
+	if !errors.Is(err, day2.ErrInvalidColor) {
 		t.Errorf("error is incorrect: %s", err)
 	}
 }
